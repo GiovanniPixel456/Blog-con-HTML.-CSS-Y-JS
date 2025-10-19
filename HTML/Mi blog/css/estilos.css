@@ -128,6 +128,10 @@ header {
     box-shadow: 0 6px 20px rgba(110, 182, 255, 0.4);
 }
 
+/* =========================================== */
+/* ANIMACIÓN 3 - ONDA DESDE EL CENTRO */
+/* =========================================== */
+
 /* Menú de navegación con animación mejorada */
 .menu {
     height: 80px;
@@ -163,7 +167,7 @@ header {
     top: 0;
     left: 0;
     border-radius: 0 0 2px 2px;
-    animation: lineAppear 0.4s ease-out;
+    animation: waveExpand 0.6s ease-out;
 }
 
 /* Efecto hover mejorado para los items del menú */
@@ -260,28 +264,27 @@ header {
     text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Contenido del artículo */
+/* CONTENEDOR PRINCIPAL - SEPARADO EN DOS RECUADROS INDEPENDIENTES */
 .container-content {
     display: flex;
     justify-content: center;
     width: 1200px;
     margin: 40px auto;
     gap: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px);
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    overflow: hidden;
 }
 
+/* RECUADRO SEPARADO PARA ARTÍCULOS */
 article {
     width: 100%;
     padding: 40px;
     padding-bottom: 50px;
+    border-radius: 20px;
     position: relative;
     overflow: hidden;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
 article::before {
@@ -334,16 +337,16 @@ article img:hover {
     transform: scale(1.02);
 }
 
-/* Aside de los artículos relacionados */
+/* RECUADRO SEPARADO PARA ASIDE */
 .container-aside {
+    width: 400px;
     display: flex;
     flex-direction: column;
     gap: 25px;
-    padding: 20px;
 }
 
 .container-aside aside {
-    width: 320px;
+    width: 100%;
     border-radius: 16px;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.1);
@@ -534,7 +537,30 @@ article img:hover {
     background: linear-gradient(45deg, #128C7E, #25D366) !important;
 }
 
-/* ANIMACIONES ESPECTACULARES */
+/* =========================================== */
+/* ANIMACIONES */
+/* =========================================== */
+
+/* ANIMACIÓN 3 - Onda desde el centro */
+@keyframes waveExpand {
+    0% {
+        transform: scaleX(0);
+        transform-origin: center;
+        opacity: 0;
+    }
+    50% {
+        transform: scaleX(1.2);
+        transform-origin: center;
+        opacity: 0.7;
+    }
+    100% {
+        transform: scaleX(1);
+        transform-origin: center;
+        opacity: 1;
+    }
+}
+
+/* ANIMACIONES ESPECTACULARES DEL FONDO */
 @keyframes cosmicFloat {
     0%, 100% {
         background-position: 
@@ -600,9 +626,6 @@ article img:hover {
     }
 }
 
-/* Resto del CSS responsive... */
-/* [Mantén todo el código responsive que ya tienes igual] */
-
 /* Párrafos justificados */
 article p {
     text-align: justify;
@@ -640,15 +663,14 @@ article p {
 
     article {
         max-width: 100%;
-        padding: 30px;
     }
 
     .container-aside {
+        width: 100%;
+        max-width: 800px;
         flex-direction: row;
         justify-content: center;
         flex-wrap: wrap;
-        width: 100%;
-        padding: 20px;
     }
 
     .container-aside aside {
@@ -781,7 +803,6 @@ article p {
 
     .container-content {
         margin: 20px auto;
-        border-radius: 15px;
     }
 }
 
