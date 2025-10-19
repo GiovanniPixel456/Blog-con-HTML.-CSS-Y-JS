@@ -1,0 +1,822 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Source Sans 3", sans-serif;
+}
+
+/* Fondo animado ESPECTACULAR */
+body {
+    background: 
+        /* Capa base oscura */
+        linear-gradient(135deg, #1e3c72 0%, #2a5298 100%),
+        /* Partículas brillantes */
+        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.3) 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+        /* Efectos de luz */
+        radial-gradient(circle at 10% 10%, rgba(100, 150, 255, 0.4) 0%, transparent 30%),
+        radial-gradient(circle at 90% 90%, rgba(70, 130, 255, 0.3) 0%, transparent 35%);
+    
+    background-size: 100% 100%, 200% 200%, 300% 300%, 400% 400%, 500% 500%;
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: #ffffff;
+    line-height: 1.6;
+    animation: cosmicFloat 18s ease-in-out infinite;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Capa superior animada */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 50% 50%, rgba(70, 130, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(100, 180, 255, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 20% 80%, rgba(120, 200, 255, 0.1) 0%, transparent 45%);
+    background-size: 150% 150%, 200% 200%, 250% 250%;
+    pointer-events: none;
+    z-index: -1;
+    animation: nebulaPulse 12s ease-in-out infinite;
+}
+
+/* Efecto de partículas brillantes */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.8) 0%, transparent 2%),
+        radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.6) 0%, transparent 1.5%),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.7) 0%, transparent 1%),
+        radial-gradient(circle at 90% 60%, rgba(255, 255, 255, 0.5) 0%, transparent 1.2%),
+        radial-gradient(circle at 10% 40%, rgba(255, 255, 255, 0.6) 0%, transparent 1%);
+    pointer-events: none;
+    z-index: -1;
+    animation: twinkle 8s ease-in-out infinite;
+}
+
+/* Header con mejor contraste */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: rgba(30, 60, 114, 0.95);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.logo {
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.logo h1 b {
+    color: #6eb6ff;
+    width: auto;
+    text-shadow: 0 0 10px rgba(110, 182, 255, 0.5);
+}
+
+/* Botón del menú móvil */
+#icon-menu {
+    display: none;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 20px;
+    background: linear-gradient(135deg, #6eb6ff, #4a90e2);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(110, 182, 255, 0.3);
+}
+
+#icon-menu:hover {
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 6px 20px rgba(110, 182, 255, 0.4);
+}
+
+/* Menú de navegación con animación mejorada */
+.menu {
+    height: 80px;
+}
+
+.menu nav {
+    height: 100%;
+}
+
+.menu nav ul {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+.menu nav ul li {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+    position: relative;
+}
+
+.menu-selected:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #6eb6ff, #4a90e2);
+    top: 0;
+    left: 0;
+    border-radius: 0 0 2px 2px;
+    animation: lineAppear 0.4s ease-out;
+}
+
+/* Efecto hover mejorado para los items del menú */
+.menu nav ul li a {
+    color: #e0e0e0;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+    position: relative;
+    padding: 10px 0;
+}
+
+/* Efecto de subrayado al hover */
+.menu nav ul li a:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #6eb6ff, #4a90e2);
+    bottom: -5px;
+    left: 50%;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.menu nav ul li a:hover:after {
+    width: 80%;
+}
+
+.menu nav ul li a:hover {
+    color: #6eb6ff;
+    transform: translateY(-2px);
+}
+
+.menu .text-menu-selected {
+    color: #6eb6ff;
+    font-weight: 600;
+}
+
+/* Portada */
+.container-cover {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    margin-top: 80px;
+    background-image: url(../img/7.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 0 0 20px 20px;
+    overflow: hidden;
+}
+
+.container-cover:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(30, 60, 114, 0.7), rgba(42, 82, 152, 0.5));
+    top: 0;
+    left: 0;
+}
+
+.container-info-cover {
+    max-width: 800px;
+    height: 500px;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    position: relative;
+}
+
+.container-info-cover h1 {
+    color: #ffffff;
+    font-size: 60px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.container-info-cover p {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 20px;
+    line-height: 1.6;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenido del artículo */
+.container-content {
+    display: flex;
+    justify-content: center;
+    width: 1200px;
+    margin: 40px auto;
+    gap: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+}
+
+article {
+    width: 100%;
+    padding: 40px;
+    padding-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+}
+
+article::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, #6eb6ff, #4a90e2);
+    top: 0;
+    left: 0;
+    border-radius: 0 0 3px 3px;
+}
+
+article h1 {
+    font-size: 42px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #ffffff;
+    position: relative;
+}
+
+article h1:after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background: #6eb6ff;
+    bottom: -10px;
+    left: 0;
+    border-radius: 2px;
+}
+
+article p {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #e0e0e0;
+    line-height: 1.7;
+}
+
+article img {
+    width: 100%;
+    margin-top: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+article img:hover {
+    transform: scale(1.02);
+}
+
+/* Aside de los artículos relacionados */
+.container-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 20px;
+}
+
+.container-aside aside {
+    width: 320px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.container-aside aside:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #6eb6ff, #4a90e2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.container-aside aside:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(110, 182, 255, 0.4);
+}
+
+.container-aside aside:hover:before {
+    opacity: 1;
+}
+
+.container-aside img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 16px 16px 0 0;
+    transition: transform 0.3s ease;
+}
+
+.container-aside aside:hover img {
+    transform: scale(1.05);
+}
+
+.container-aside aside h2 {
+    margin-top: 25px;
+    padding: 0 25px;
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.container-aside aside p {
+    margin-top: 15px;
+    padding: 0 25px;
+    color: #e0e0e0;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+/* TODOS LOS BOTONES CENTRADOS */
+.container-aside aside button {
+    margin: 25px auto !important;
+    padding: 14px 35px;
+    font-size: 16px;
+    background: linear-gradient(135deg, #6eb6ff, #4a90e2);
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0 6px 20px rgba(110, 182, 255, 0.3);
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.container-aside aside button:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.container-aside aside button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(110, 182, 255, 0.4);
+}
+
+.container-aside aside button:hover:before {
+    left: 100%;
+}
+
+/* BOTONES DE REDES SOCIALES */
+.botones-redes {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0 20px;
+    margin-top: 15px;
+    align-items: center;
+}
+
+.botones-redes a {
+    text-decoration: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.botones-redes button {
+    margin: 0 auto !important;
+    padding: 12px 25px !important;
+    font-size: 14px !important;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 240px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.botones-redes button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Colores específicos para cada red social */
+.btn-instagram {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D) !important;
+}
+
+.btn-facebook {
+    background: linear-gradient(45deg, #1877F2, #0D5FAB) !important;
+}
+
+.btn-tiktok {
+    background: linear-gradient(45deg, #000000, #00F2EA, #FF0050) !important;
+}
+
+.btn-twitter {
+    background: linear-gradient(45deg, #1DA1F2, #0D8BD9) !important;
+}
+
+.btn-email {
+    background: linear-gradient(45deg, #EA4335, #D14836) !important;
+}
+
+.btn-whatsapp {
+    background: linear-gradient(45deg, #25D366, #128C7E) !important;
+}
+
+/* Efectos hover específicos */
+.btn-instagram:hover {
+    background: linear-gradient(45deg, #E1306C, #C13584, #833AB4, #5851DB, #405DE6) !important;
+}
+
+.btn-facebook:hover {
+    background: linear-gradient(45deg, #0D5FAB, #1877F2) !important;
+}
+
+.btn-tiktok:hover {
+    background: linear-gradient(45deg, #FF0050, #00F2EA, #000000) !important;
+}
+
+.btn-twitter:hover {
+    background: linear-gradient(45deg, #0D8BD9, #1DA1F2) !important;
+}
+
+.btn-email:hover {
+    background: linear-gradient(45deg, #D14836, #EA4335) !important;
+}
+
+.btn-whatsapp:hover {
+    background: linear-gradient(45deg, #128C7E, #25D366) !important;
+}
+
+/* ANIMACIONES ESPECTACULARES */
+@keyframes cosmicFloat {
+    0%, 100% {
+        background-position: 
+            0% 0%,
+            0% 0%,
+            0% 0%,
+            0% 0%,
+            0% 0%;
+    }
+    25% {
+        background-position: 
+            0% 0%,
+            50% 25%,
+            25% 50%,
+            75% 25%,
+            25% 75%;
+    }
+    50% {
+        background-position: 
+            0% 0%,
+            100% 50%,
+            50% 100%,
+            25% 75%,
+            75% 25%;
+    }
+    75% {
+        background-position: 
+            0% 0%,
+            50% 75%,
+            75% 50%,
+            100% 25%,
+            25% 100%;
+    }
+}
+
+@keyframes nebulaPulse {
+    0%, 100% {
+        background-position: 0% 0%, 0% 0%, 0% 0%;
+        opacity: 0.8;
+    }
+    50% {
+        background-position: 50% 50%, 25% 75%, 75% 25%;
+        opacity: 1;
+    }
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    25% {
+        opacity: 0.6;
+        transform: scale(1.1);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(0.9);
+    }
+    75% {
+        opacity: 0.7;
+        transform: scale(1.05);
+    }
+}
+
+/* Resto del CSS responsive... */
+/* [Mantén todo el código responsive que ya tienes igual] */
+
+/* Párrafos justificados */
+article p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.container-aside aside p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.container-info-cover p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1220px) {
+    .header-content,
+    .container-content {
+        max-width: 1000px;
+        padding: 0 20px;
+    }
+    
+    .container-content {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1020px) {
+    .container-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    article {
+        max-width: 100%;
+        padding: 30px;
+    }
+
+    .container-aside {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .container-aside aside {
+        max-width: 300px;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .container-all {
+        transition: all 300ms cubic-bezier(1,0,0,1);
+    }
+
+    .move-container-all {
+        transform: translateX(300px);
+    }
+
+    #icon-menu {
+        display: flex;
+    }
+
+    .menu {
+        width: 0px;
+        height: 100vh;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        background: rgba(30, 60, 114, 0.98);
+        backdrop-filter: blur(20px);
+        overflow: hidden;
+        transform: translateX(-350px);
+        box-shadow: 15px 0 30px rgba(0, 0, 0, 0.3);
+        transition: all 300ms cubic-bezier(1,0,0,1);
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .show-lateral {
+        width: 300px;
+        transform: translateX(0px);
+    }
+
+    .menu nav ul {
+        flex-direction: column;
+        padding: 30px;
+        align-items: flex-start;
+    }
+
+    .menu nav ul li {
+        max-width: 200px;
+        height: 50px;
+        justify-content: flex-start;
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    .menu-selected:before {
+        width: 0;
+    }
+
+    .menu nav ul li a {
+        margin-top: 0;
+        color: #e0e0e0;
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .menu nav ul li a:hover {
+        background: rgba(110, 182, 255, 0.1);
+        transform: translateX(5px);
+    }
+
+    .menu nav ul li a i {
+        width: 20px;
+        display: inline-block;
+        margin-right: 10px;
+        color: #6eb6ff;
+    }
+
+    .container-aside {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container-aside aside {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .botones-redes {
+        gap: 3px;
+    }
+    
+    .botones-redes button {
+        padding: 10px 20px !important;
+        max-width: 220px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container-info-cover h1 {
+        font-size: 40px;
+    }
+
+    .container-info-cover p {
+        font-size: 18px;
+        padding: 0 20px;
+    }
+
+    .container-cover {
+        height: 400px;
+    }
+
+    .container-info-cover {
+        height: 400px;
+    }
+
+    article h1 {
+        font-size: 32px;
+    }
+
+    article p {
+        font-size: 16px;
+    }
+
+    .container-content {
+        margin: 20px auto;
+        border-radius: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo h1 {
+        font-size: 24px;
+    }
+
+    .container-info-cover h1 {
+        font-size: 32px;
+    }
+
+    .container-info-cover p {
+        font-size: 16px;
+    }
+
+    .container-aside aside {
+        width: 100%;
+    }
+
+    article {
+        padding: 20px;
+    }
+
+    .container-content {
+        gap: 20px;
+    }
+
+    .botones-redes {
+        gap: 2px;
+    }
+    
+    .botones-redes button {
+        padding: 8px 16px !important;
+        max-width: 200px;
+        font-size: 12px !important;
+    }
+}
