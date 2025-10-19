@@ -324,17 +324,54 @@ article p {
     line-height: 1.7;
 }
 
+/* ========== OPCIÓN 3: RESPLANDOR Y BORDE LUMINOSO ========== */
 article img {
     width: 100%;
     margin-top: 25px;
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s ease;
+    border: 2px solid transparent;
+    transition: all 0.5s ease;
+    position: relative;
+    background: transparent;
 }
 
 article img:hover {
     transform: scale(1.02);
+    border: 2px solid rgba(110, 182, 255, 0.6);
+    box-shadow: 
+        0 15px 35px rgba(110, 182, 255, 0.3),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+/* Efecto de resplandor */
+article img::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: linear-gradient(45deg, #6eb6ff, #4a90e2, #6eb6ff);
+    border-radius: 14px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    filter: blur(8px);
+}
+
+article img:hover::before {
+    opacity: 0.4;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0.6;
+    }
 }
 
 /* RECUADRO SEPARADO PARA ASIDE */
@@ -384,11 +421,36 @@ article img:hover {
     height: 200px;
     object-fit: cover;
     border-radius: 16px 16px 0 0;
-    transition: transform 0.3s ease;
+    transition: all 0.4s ease;
+    border: 1px solid transparent;
+    position: relative;
 }
 
 .container-aside aside:hover img {
-    transform: scale(1.05);
+    transform: scale(1.06);
+    border: 1px solid rgba(110, 182, 255, 0.4);
+    box-shadow: 
+        0 12px 25px rgba(0, 0, 0, 0.4),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Efecto de resplandor para imágenes del aside */
+.container-aside img::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #6eb6ff, #4a90e2);
+    border-radius: 18px 18px 0 0;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.container-aside aside:hover img::before {
+    opacity: 0.3;
 }
 
 .container-aside aside h2 {
